@@ -1,6 +1,25 @@
 # opencode-ponytail-v2
 
-[Ponytail](https://github.com/DietrichGebert/ponytail) for **OpenCode V2**.
+[![npm](https://img.shields.io/npm/v/@filecrop/opencode-ponytail-v2)](https://www.npmjs.com/package/@filecrop/opencode-ponytail-v2)
+[![license](https://img.shields.io/npm/l/@filecrop/opencode-ponytail-v2)](LICENSE)
+
+**[Ponytail](https://github.com/DietrichGebert/ponytail) for OpenCode 2.x.**
+The upstream OpenCode plugin only supports the V1 plugin API, so OpenCode 2.x
+refuses to load it. This package is the same ponytail, ported to V2.
+
+## Install
+
+```sh
+opencode plugin add @filecrop/opencode-ponytail-v2
+```
+
+That's it. Ponytail is active in your next OpenCode session. Confirm with
+`opencode plugin list` (look for `ponytail`), then switch levels any time with
+`/ponytail lite|full|ultra|off`.
+
+Prefer config files? See [other ways to install](#other-ways-to-install).
+
+## What is ponytail?
 
 Ponytail makes your agent think like the laziest senior dev in the room: before
 writing code it stops at the first rung that holds (does this need to exist →
@@ -8,17 +27,17 @@ already in the codebase → stdlib → native platform feature → installed
 dependency → one line → the minimum that works), while never cutting input
 validation, error handling, security, or accessibility.
 
-Upstream ships an OpenCode plugin, but it implements the **V1 plugin API only**,
-so OpenCode 2.x refuses to load it:
+Ponytail is by [Dietrich Gebert](https://github.com/DietrichGebert/ponytail);
+see upstream for the ruleset itself. This package does not reimplement it: the
+ruleset, skills, commands, and instruction builders under `vendor/upstream/` are
+copied verbatim from the pinned upstream release, so what the model sees is
+byte-identical.
+
+Upstream's plugin fails on OpenCode 2.x with:
 
 ```
 Plugin must export a default definition with an id and an effect or setup function
 ```
-
-This package ports the same behavior to the V2 plugin API. It does not
-reimplement ponytail: the ruleset, skills, commands, and instruction builders
-under `vendor/upstream/` are copied verbatim from the pinned upstream release, so
-what the model sees is byte-identical.
 
 ## What it does
 
@@ -43,7 +62,7 @@ the command's prompt is sent, so it applies from that request on.
 
 OpenCode 2.x (verified on 2.0.14). For OpenCode 1.x, use upstream's own plugin.
 
-## Install
+## Other ways to install
 
 Add the package to `plugins` in your OpenCode config. A project config
 (`opencode.json` in the repo) scopes it to that project; the global config
@@ -65,10 +84,7 @@ Or from a local checkout (point at the directory, not `index.js`):
 }
 ```
 
-Check it loaded with `opencode plugin list` (look for `ponytail`).
-
-Then use it as upstream documents: `/ponytail lite|full|ultra|off`, or just work:
-the ruleset arrives on its own.
+Update or remove with `opencode plugin update` / `opencode plugin remove`.
 
 ## Why it works on V2
 
