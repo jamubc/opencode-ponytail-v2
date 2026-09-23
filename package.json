@@ -1,0 +1,49 @@
+{
+  "name": "@jamubc/opencode-ponytail-v2",
+  "version": "0.1.0",
+  "description": "Ponytail for OpenCode V2: a self-contained adapter that ports the plugin surface to the native V2 API, with upstream's ruleset, skills, and commands vendored verbatim. Not a fork; no runtime deps.",
+  "type": "module",
+  "license": "MIT",
+  "author": "jamubc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamubc/opencode-ponytail-v2.git"
+  },
+  "homepage": "https://github.com/jamubc/opencode-ponytail-v2#readme",
+  "bugs": {
+    "url": "https://github.com/jamubc/opencode-ponytail-v2/issues"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "ponytail",
+    "ai-agent",
+    "yagni",
+    "skills"
+  ],
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "src",
+    "vendor",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "sync-upstream": "node scripts/upstream.mjs sync",
+    "check-drift": "node scripts/upstream.mjs check"
+  },
+  "devDependencies": {
+    "@dietrichgebert/ponytail": "4.10.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
