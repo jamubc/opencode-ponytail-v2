@@ -30,6 +30,7 @@
     "src",
     "vendor",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE"
   ],
   "scripts": {
