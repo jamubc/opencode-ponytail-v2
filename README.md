@@ -52,7 +52,7 @@ Add the package to `plugins` in your OpenCode config. A project config
 ```jsonc
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugins": ["@jamubc/opencode-ponytail-v2"]
+  "plugins": ["@filecrop/opencode-ponytail-v2"]
 }
 ```
 

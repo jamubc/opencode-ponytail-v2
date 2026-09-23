@@ -1,5 +1,5 @@
 {
-  "name": "@jamubc/opencode-ponytail-v2",
+  "name": "@filecrop/opencode-ponytail-v2",
   "version": "0.1.0",
   "description": "Ponytail for OpenCode V2: a self-contained adapter that ports the plugin surface to the native V2 API, with upstream's ruleset, skills, and commands vendored verbatim. Not a fork; no runtime deps.",
   "type": "module",
